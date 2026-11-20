@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#101a3a">
+  <title>English Subway Challenge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon">🚇</span><span>ENGLISH <b>SUBWAY</b> CHALLENGE</span></div>
+      <button id="soundBtn" class="icon-btn" aria-label="Toggle sound" title="Toggle sound">🔊</button>
+    </header>
+
+    <section id="menuScreen" class="screen menu-screen">
+      <div class="hero">
+        <div class="eyebrow">GRADE 11 · UNIT 3 · THE HUMAN BRAIN</div>
+        <h1>ENGLISH<br><span>SUBWAY CHALLENGE</span></h1>
+        <p>Run, collect coins and test your knowledge of mental arithmetic in Kazakhstan!</p>
+        <div class="hero-art" aria-hidden="true">
+          <span class="train">🚆</span><span class="runner">🏃</span><span class="coin c1">🟡</span><span class="coin c2">🟡</span>
+        </div>
+      </div>
+      <div class="menu-card">
+        <label for="playerName">PLAYER NAME</label>
+        <input id="playerName" type="text" maxlength="18" placeholder="Enter your name" autocomplete="off">
+        <div class="howto">
+          <h2>HOW TO PLAY</h2>
+          <p><b>← / →</b> Change lane &nbsp; <b>↑</b> Jump &nbsp; <b>↓</b> Slide</p>
+          <p>On mobile: swipe left, right, up or down. Answer the quiz questions to earn points!</p>
+        </div>
+        <button id="startBtn" class="primary-btn">▶ START RUN</button>
+        <button id="leaderboardBtn" class="secondary-btn">🏆 LEADERBOARD</button>
+      </div>
+      <p class="small-note">A learning game inspired by endless runner games.</p>
+    </section>
+
+    <section id="gameScreen" class="screen game-screen hidden">
+      <div class="hud">
+        <div class="hud-item"><small>SCORE</small><strong id="scoreValue">0</strong></div>
+        <div class="hud-item"><small>COINS</small><strong id="coinValue">0</strong></div>
+        <div class="hud-item"><small>❤️ LIVES</small><strong id="livesValue">❤️❤️❤️</strong></div>
+        <button id="pauseBtn" class="pause-btn">Ⅱ</button>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="900" height="560" aria-label="Endless runner game"></canvas>
+        <div id="quizPanel" class="quiz-panel hidden">
+          <div class="quiz-top"><span>🧠 QUICK CHALLENGE</span><span id="questionNumber">QUESTION 1 / 15</span></div>
+          <h2 id="questionText">Question goes here</h2>
+          <div id="answers" class="answers"></div>
+          <p id="quizFeedback" class="quiz-feedback" aria-live="polite"></p>
+        </div>
+        <div id="pauseOverlay" class="overlay hidden">
+          <div class="overlay-card"><h2>PAUSED</h2><p>Take a breath. Your run is waiting!</p><button id="resumeBtn" class="primary-btn">▶ RESUME</button></div>
+        </div>
+      </div>
+      <div class="game-controls">
+        <span>← → CHANGE LANE</span><span>↑ JUMP</span><span>↓ SLIDE</span>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="screen result-screen hidden">
+      <div class="result-card">
+        <div class="result-medal" id="medalIcon">🥇</div>
+        <div class="eyebrow">RUN COMPLETED</div>
+        <h1 id="resultTitle">WELL DONE!</h1>
+        <p id="resultPlayer" class="result-player"></p>
+        <div class="stats-grid">
+          <div><small>FINAL SCORE</small><strong id="finalScore">0</strong></div>
+          <div><small>COINS</small><strong id="finalCoins">0</strong></div>
+          <div><small>CORRECT ANSWERS</small><strong id="finalCorrect">0 / 15</strong></div>
+          <div><small>ACCURACY</small><strong id="finalAccuracy">0%</strong></div>
+        </div>
+        <p id="resultMessage" class="result-message"></p>
+        <button id="playAgainBtn" class="primary-btn">↻ PLAY AGAIN</button>
+        <button id="resultsBoardBtn" class="secondary-btn">🏆 VIEW LEADERBOARD</button>
+        <button id="menuBtn" class="text-btn">Back to menu</button>
+      </div>
+    </section>
+
+    <section id="leaderboardScreen" class="screen leaderboard-screen hidden">
+      <div class="result-card">
+        <div class="result-medal">🏆</div><h1>LEADERBOARD</h1>
+        <p class="result-player">Best runs on this device</p>
+        <ol id="leaderboardList" class="leaderboard-list"></ol>
+        <p id="emptyBoard" class="small-note">No results yet. Be the first player!</p>
+        <button id="boardBackBtn" class="primary-btn">BACK</button>
+        <button id="clearBoardBtn" class="text-btn">Clear leaderboard</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
